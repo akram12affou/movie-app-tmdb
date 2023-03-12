@@ -1,0 +1,53 @@
+.home{
+    min-height: calc(100vh - 70px);
+    background: #141414;
+    .movie-filter{
+        position: relative;
+        background: #141414;
+        display: flex;
+        top: 3vh;
+        margin-bottom: 50px;
+        right:3vw;
+        justify-content: flex-end;
+        font-size: 0.8rem;
+        padding: 5px;
+        span{
+            padding: 2px 10px;
+            border: 1px white solid;
+            color:white;
+            cursor: pointer;
+        }
+        .Popular{
+          
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        .upComing{
+          
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+       
+    }
+    .movies{
+        display: flex;
+        flex-wrap: wrap;
+     
+        justify-content: center;
+        gap: calc(3vw + 8px);
+        min-height: calc(100vh - 70px);
+    }
+    .pagination{
+       
+        display: flex;
+       color: white;
+       
+        justify-content: center;
+        padding: 40px 0;
+    }
+    .pagination > *{
+        color: white;
+        background: #5f5f5f;
+        border-radius: 5px;
+    }
+}

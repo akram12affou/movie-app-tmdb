@@ -1,18 +1,24 @@
-const fetchPopularMovies = (url) => {
+export const fetchPopularMovies = (url) => {
      return{
         type:'FetchPopularMovies',
         payload:url
      }
 }
-const fetchTopRatedMovies = (url) => {
+export const fetchTopRatedMovies = (url) => {
      return{
         type:'FetchTopRatedMovies',
         payload:url
      }
 }
-const fetchUpComingMovies = (url) => {
+export const fetchUpComingMovies = (url) => {
      return{
         type:'FetchUpComingMovies',
+        payload:url
+     }
+}
+export const fetchSearchMovies = (url) => {
+     return{
+        type:'FetchSearchMovies',
         payload:url
      }
 }

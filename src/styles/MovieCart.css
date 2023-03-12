@@ -1,0 +1,31 @@
+.movie-cart-container {
+  position: relative;
+}
+.movie-cart-container img {
+  width: calc(70px + 10vw);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.movie-cart-container img:hover {
+  filter: grayscale(0.5);
+  transform: translateY(-1px);
+}
+.movie-cart-container p {
+  display: flex;
+  justify-content: center;
+  font-size: calc(10px + 0.4vw);
+  margin: 0;
+  color: aliceblue;
+}
+.movie-cart-container .avereage {
+  z-index: 20;
+  color: white;
+  position: absolute;
+  top: 9px;
+  background: #aaaaaa;
+  padding: 2px;
+  font-size: calc(10px + 0.4vw);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}/*# sourceMappingURL=MovieCart.css.map */
