@@ -22,3 +22,15 @@ export const fetchSearchMovies = (url) => {
         payload:url
      }
 }
+export const fetchMovieDetails = (url) => {
+     return{
+        type:'FetchMovieDetails',
+        payload:url
+     }
+}
+export const fetchMovieDetailsCast = (url) => {
+     return{
+        type:'FetchMovieDetailsCast',
+        payload:url
+     }
+}

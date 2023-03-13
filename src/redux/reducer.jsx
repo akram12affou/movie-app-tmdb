@@ -3,7 +3,9 @@ const initialState = {
   topRated : [],
   SearchMovies : [],
   upComing : [] ,
-  Favorites : []
+  Favorites : [],
+  MovieDetails :[],
+  MovieDetailsCast: []
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -15,8 +17,12 @@ export default (state = initialState, { type, payload }) => {
   case 'FetchUpComingMovies':
     return { ...state , upComing : [...payload.results] }
     case 'FetchSearchMovies':
-      console.log(payload)
       return { ...state , SearchMovies : [...payload.results] }
+    case 'FetchMovieDetails':
+      return { ...state , MovieDetails : [payload] }
+    case 'FetchMovieDetailsCast':
+      console.log(payload)
+      return { ...state , MovieDetailsCast : [payload] }
   default:
     return state
   }

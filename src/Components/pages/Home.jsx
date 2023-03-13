@@ -18,16 +18,17 @@ function Home({query}) {
   const REACT_APP_TMDB_KEY = "4a16a312cc25534aac7bab9f0901fa3b";
   useEffect(() => {
     setLoading(true)
-    axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=4a16a312cc25534aac7bab9f0901fa3b&language=en-US&page=${page}}`)
+    axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=4a16a312cc25534aac7bab9f0901fa3b&language=en-US}`)
     .then((res) => dispatch(fetchPopularMovies(res.data)))
-    axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=4a16a312cc25534aac7bab9f0901fa3b&language=en-US&page=${page}}`)
+    axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=4a16a312cc25534aac7bab9f0901fa3b&language=en-US}`)
     .then((res) => dispatch(fetchTopRatedMovies(res.data)))
-    axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=4a16a312cc25534aac7bab9f0901fa3b&language=en-US&page=${page}}`)
+    axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=4a16a312cc25534aac7bab9f0901fa3b&language=en-US}`)
     .then((res) => dispatch(fetchUpComingMovies(res.data))).then((res) => {
       setLoading(false)
     })
-  },[page])
+  },[])
   useEffect(() => {
+    if(query=='') return;
     setLoading(true)
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_TMDB_KEY}&language=en-US&page=${page}&include_adult=${true}&query=${query}`)
     .then((res) => dispatch(fetchSearchMovies(res.data))).then((res) => {
@@ -38,7 +39,6 @@ function Home({query}) {
     window.scroll(0,0)
     setPage(value);
   };
-   console.log(query)
   return (
     <div className='home'>
     { query=='' && 
@@ -69,18 +69,21 @@ function Home({query}) {
         )
        })}</>}</>
       }</>}
-     {!loading ? <div className="movies">{
+     {!loading  ? <div className="movies">{
         searchMovies.map((movie) => {
           return(
             <MovieCart movie={movie} />
           )
         })
-      }</div> : <LoadingSpinner/>}
+      }</div> :  (query!=='') && <LoadingSpinner/>}
       
       </div>
+      {query!=='' && 
       <div className='pagination'>
       <Pagination count={10} page={page} onChange={handleChange} color="primary"/>
       </div>
+      }
+      
     </div>
   )
 }

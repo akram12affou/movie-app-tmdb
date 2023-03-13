@@ -1,0 +1,65 @@
+.movie-details{
+    background: #141414;
+    color:white;
+    padding-top: 20px;
+    width: 100vw;
+    height: 70vh;
+    
+    display: flex;
+    justify-content: center;
+    gap:15px;
+   
+    div img{
+      width: calc(190px + 10vw);
+   
+    margin:0 auto;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+    .overview{
+        font-size: calc(10px + 0.3vw);
+    }
+    .img-container{
+      
+      
+  
+       position: relative;
+       span{
+        position: absolute;
+        background: #0dff00;
+        top:10px;
+        left: 0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding: 2px;
+       }
+    }
+    .details{
+        display: flex;
+        width: 50vw;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        div{
+          display: flex;
+          flex-direction: column;
+        }
+    }
+    .title{
+      font-size: 20px;
+      font-weight: bolder;
+    }
+    .titles{
+      font-size: 15px;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  
+      
+    }
+    .genres span{
+ background: #48bb06;
+  margin-left: 5px;
+  border-radius: 3px;
+font-size: 13px;
+padding: 5px;
+    }
+}
