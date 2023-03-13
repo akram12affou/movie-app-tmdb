@@ -86,7 +86,8 @@ function MovieDetailsCart({ movie, movieDetailsCast }) {
           {movieDetailsCast[0].cast.slice(0, showing).map((person) => {
             return <Person person={person} />;
           })}
-        </div></div>
+        </div>
+        </div>
     </>
  
   );

@@ -13,6 +13,7 @@ function MovieDetails() {
   const dispatch = useDispatch();
   const REACT_APP_TMDB_KEY = "4a16a312cc25534aac7bab9f0901fa3b";
   useEffect(() => {
+    window.scroll(0,0)
     setLoading(false);
     axios
       .get(
@@ -42,7 +43,7 @@ function MovieDetails() {
           })}
         </>
       ) : (
-        <LoadingSpinner />
+        <div className="loading"><LoadingSpinner /></div> 
       )}
     </>
   );

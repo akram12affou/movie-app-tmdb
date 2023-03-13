@@ -40,3 +40,9 @@ export const fetchPersonDetails = (url) => {
         payload:url
      }
 }
+export const fetchFilmsByPerson = (url) => {
+     return{
+        type:'FetchFilmsByPerson',
+        payload:url
+     }
+}

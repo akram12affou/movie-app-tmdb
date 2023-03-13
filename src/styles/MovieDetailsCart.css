@@ -82,6 +82,10 @@
   cursor: pointer;
 }
 
+.loading {
+  background: #141414;
+}
+
 .person-container {
   width: 90vw;
   display: flex;

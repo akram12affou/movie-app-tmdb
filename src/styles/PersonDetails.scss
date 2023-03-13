@@ -1,21 +1,44 @@
 .persons-details-container{
     background: #141414;
-    color:white;
+    color:rgb(255, 255, 255);
+    
+ 
+    
 }
-.person-container{
+.loading{
+    min-height: 100vw;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+ 
+}
+.person-container-1{
     display: grid;
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 30% 70%;
     width: 70vw;
+    margin: 0 auto;
+    gap: 10px;
     padding-top: 20px;
-     img{
+     .img{
         height: 35vw;
         border-radius: 5px;
+        object-fit: contain;
      }
      .img-container{
 display: flex;
 justify-content: end;
      }
 } 
+h1{
+    margin-left: 10vw;
+}
+.movies{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin: 0 auto;
+    gap:15px;
+}
 .details-container{
     div{
         display: flex;
@@ -25,15 +48,19 @@ justify-content: end;
         font-weight: bolder;
         font-size: 13px;
     }
+    div .bio{
+        font-size: calc(7px + 0.5vw) ;
+    }
 }
+
+
 @media screen and (max-width :768px) {
-    .person-container{
+    .person-container-1{
         display: grid;
         grid-template-columns: 35% 65%;
         width: 90vw;
         padding-top: 20px;
          img{
-            
             height: 45vw;
             border-radius: 5px;
          }

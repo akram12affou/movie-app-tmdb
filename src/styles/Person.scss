@@ -12,6 +12,7 @@ body{
     width: 160px;
     border-radius: 5px;
     cursor: pointer;
+    object-fit: cover;
     transition: all 0.2s ease-in-out;
   }
   img:hover{
