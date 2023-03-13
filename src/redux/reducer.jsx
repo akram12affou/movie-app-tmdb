@@ -5,7 +5,8 @@ const initialState = {
   upComing : [] ,
   Favorites : [],
   MovieDetails :[],
-  MovieDetailsCast: []
+  MovieDetailsCast: [],
+  PersonDetails:[]
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -21,8 +22,10 @@ export default (state = initialState, { type, payload }) => {
     case 'FetchMovieDetails':
       return { ...state , MovieDetails : [payload] }
     case 'FetchMovieDetailsCast':
-      console.log(payload)
       return { ...state , MovieDetailsCast : [payload] }
+      
+      case 'FetchPersonDetails':
+        return { ...state , PersonDetails : [payload] }
   default:
     return state
   }

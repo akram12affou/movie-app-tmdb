@@ -1,0 +1,24 @@
+body{
+  overflow-x: hidden;
+}
+.person{
+ display: flex;
+ flex-direction: column;
+ gap: 2px;
+  color:rgb(255, 255, 255);
+  background-color: #141414;
+  font-size: 12px;
+  img{
+    width: 160px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  img:hover{
+    filter:grayscale(0.5);
+    transform: translateY(-1px);
+  }
+  div .name{
+    font-weight: bolder;
+  }
+}

@@ -1,0 +1,41 @@
+.persons-details-container {
+  background: #141414;
+  color: white;
+}
+
+.person-container {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  width: 70vw;
+  padding-top: 20px;
+}
+.person-container img {
+  height: 35vw;
+  border-radius: 5px;
+}
+.person-container .img-container {
+  display: flex;
+  justify-content: end;
+}
+
+.details-container div {
+  display: flex;
+  flex-direction: column;
+}
+.details-container .title {
+  font-weight: bolder;
+  font-size: 13px;
+}
+
+@media screen and (max-width: 768px) {
+  .person-container {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    width: 90vw;
+    padding-top: 20px;
+  }
+  .person-container img {
+    height: 45vw;
+    border-radius: 5px;
+  }
+}/*# sourceMappingURL=PersonDetails.css.map */

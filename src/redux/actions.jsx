@@ -34,3 +34,9 @@ export const fetchMovieDetailsCast = (url) => {
         payload:url
      }
 }
+export const fetchPersonDetails = (url) => {
+     return{
+        type:'FetchPersonDetails',
+        payload:url
+     }
+}

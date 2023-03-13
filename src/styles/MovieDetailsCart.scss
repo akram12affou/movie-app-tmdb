@@ -10,12 +10,13 @@
     gap:15px;
    
     div img{
-      width: calc(190px + 10vw);
+      width: calc(110px + 15vw);
    
     margin:0 auto;
       border-radius: 4px;
       object-fit: cover;
     }
+
     .overview{
         font-size: calc(10px + 0.3vw);
     }
@@ -33,6 +34,7 @@
         border-bottom-right-radius: 5px;
         padding: 2px;
        }
+
     }
     .details{
         display: flex;
@@ -55,11 +57,53 @@
   
       
     }
+    .genres{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
     .genres span{
+      
  background: #48bb06;
   margin-left: 5px;
   border-radius: 3px;
-font-size: 13px;
+font-size: calc(10px + 0.3vw);
 padding: 5px;
     }
+    
 }
+.person-all-container{
+  
+  background-color: #141414;
+  color:white;
+  padding-top:10px;
+  
+  .billed-show{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20vw;
+    button{
+      color: white;
+      background-color: #141414;
+      border: 1px solid white;
+      padding: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}
+
+ 
+ 
+ 
+.person-container{
+  width: 90vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap:20px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+
