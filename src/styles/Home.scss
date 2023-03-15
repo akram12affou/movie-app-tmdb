@@ -1,4 +1,5 @@
 .home{
+   
     min-height: calc(100vh - 70px);
     background: #141414;
     .movie-filter{
@@ -36,7 +37,11 @@
         justify-content: center;
         gap: calc(3vw + 8px);
         min-height: calc(100vh - 70px);
+        .search{
+            margin-top: 50px;
+        }
     }
+   
     .pagination{
        
         display: flex;

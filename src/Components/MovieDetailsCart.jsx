@@ -77,13 +77,13 @@ function MovieDetailsCart({ movie, movieDetailsCast }) {
     <div className='billed-show'>
     <h2>Top Billed Cast</h2>
     <button onClick={showfunc} style={{
-      color: movieDetailsCast[0].cast.length==showing &&'black' , 
-      background : movieDetailsCast[0].cast.length==showing && 'white',
+      color: movieDetailsCast[0]?.cast.length==showing &&'black' , 
+      background : movieDetailsCast[0]?.cast.length==showing && 'white',
       
     }}>Show all</button>
     </div>
    <div className="person-container">
-          {movieDetailsCast[0].cast.slice(0, showing).map((person) => {
+          {movieDetailsCast[0]?.cast.slice(0, showing).map((person) => {
             return <Person person={person} />;
           })}
         </div>

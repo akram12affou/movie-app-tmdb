@@ -3,7 +3,7 @@ import MovieCart from '../MovieCart'
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import "../../styles/PersonDetails.css";
+import "../../styles/PersonDetails.scss";
 import { fetchPersonDetails,fetchFilmsByPerson } from "../../redux/actions";
 import LoadingSpinner from "../layout/LoadingSpinner";
 function PersonDetails() {

@@ -2,8 +2,22 @@
     background: #141414;
     color:rgb(255, 255, 255);
     
- 
-    
+//  .movies-kwon-by{
+//     display: flex;
+//     flex-wrap:wrap;
+//     width: 80vw;
+//     justify-content: center;
+//     gap: 10px;
+//     margin:0 auto;
+//  }
+    .movies{
+        display: flex;
+        flex-wrap: wrap;
+     
+        justify-content: center;
+        gap: calc(3vw + 8px);
+        min-height: calc(100vh - 70px);
+    }
 }
 .loading{
     min-height: 100vw;
@@ -12,6 +26,7 @@
     justify-content: center;
  
 }
+
 .person-container-1{
     display: grid;
     grid-template-columns: 30% 70%;
@@ -32,13 +47,7 @@ justify-content: end;
 h1{
     margin-left: 10vw;
 }
-.movies{
-    display: flex;
-    flex-wrap: wrap;
-    width: 80vw;
-    margin: 0 auto;
-    gap:15px;
-}
+
 .details-container{
     div{
         display: flex;

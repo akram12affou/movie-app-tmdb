@@ -13,7 +13,7 @@ function Header({query,setQuery}) {
         <div className='navBar-search'>
             <input type="text" placeholder='search a movie' value={query} onChange={(e) => {setQuery(e.target.value)}} />
             <div className='favorite-icon'><FavoriteBorderIcon/></div>
-           
+
         </div>
     </div>
   )
