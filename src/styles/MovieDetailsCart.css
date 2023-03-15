@@ -2,7 +2,7 @@
   background: #141414;
   color: white;
   padding-top: 20px;
-  width: 100vw;
+  
   height: 70vh;
   display: flex;
   justify-content: center;
@@ -87,10 +87,12 @@
 }
 
 .person-container {
-  width: 90vw;
+  max-width: 80vw;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0px auto;
+  padding-bottom: 35px;
+  background: #141414;
 }/*# sourceMappingURL=MovieDetailsCart.css.map */

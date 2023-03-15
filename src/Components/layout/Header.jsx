@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/Header.css'
+import '../../styles/Header.scss'
 import { useNavigate } from 'react-router-dom';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 function Header({query,setQuery}) {

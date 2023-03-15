@@ -15,9 +15,10 @@ function App() {
      
       <Header query={query} setQuery={setQuery}  />
       <Routes>
+        
       <Route path='/' element={<Home  query={query} setQuery={setQuery} />}/>
-      <Route path='/moviedetails/:id' element={<MovieDetails />}/>
-      <Route path='/person/:id' element={<PersonDetails />}/>
+      <Route path='/moviedetails/:id' element={<MovieDetails query={query}/>}/>
+      <Route path='/person/:id' element={<PersonDetails query={query}/>}/>
       </Routes>
       
       </BrowserRouter>

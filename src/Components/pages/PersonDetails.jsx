@@ -2,11 +2,12 @@ import axios from "axios";
 import MovieCart from '../MovieCart'
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import "../../styles/PersonDetails.scss";
 import { fetchPersonDetails,fetchFilmsByPerson } from "../../redux/actions";
 import LoadingSpinner from "../layout/LoadingSpinner";
-function PersonDetails() {
+function PersonDetails({query}) {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const REACT_APP_TMDB_KEY = "4a16a312cc25534aac7bab9f0901fa3b";
   const PersonDetails = useSelector((state) => state.PersonDetails);
@@ -14,15 +15,12 @@ function PersonDetails() {
   const { id } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
+    if(query=='') return
+    navigate('/')
+  },[query])
+  useEffect(() => {
     window.scroll(0,0)
     setLoading(true);
-    axios
-      .get(
-        `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${REACT_APP_TMDB_KEY}&language=en-US`
-      )
-      .then((res) => {
-        dispatch(fetchFilmsByPerson(res.data));
-      })
     axios
       .get(
         `https://api.themoviedb.org/3/person/${id}?api_key=${REACT_APP_TMDB_KEY}&language=en-US`
@@ -30,11 +28,17 @@ function PersonDetails() {
       .then((res) => {
         dispatch(fetchPersonDetails(res.data));
       })
+    axios
+      .get(
+        `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${REACT_APP_TMDB_KEY}&language=en-US`
+      )
+      .then((res) => {
+        dispatch(fetchFilmsByPerson(res.data));
+      })
       .then((res) => {
         setLoading(false);
       });
   }, []);
- console.log(FilmsByPerson[0]?.cast)
   return (
     <div className="persons-details-container">
       {!loading ? (
@@ -81,7 +85,13 @@ function PersonDetails() {
           </div>
         </>
       ) : (
-        <div className="loading"><LoadingSpinner /></div>
+        <div 
+        style={{display: 'flex',
+        justifyContent:'center',
+        minHeight:'100vh',
+        background:'#141414',
+        color: 'white'}}
+        ><LoadingSpinner /></div>
         
       )}
     </div>

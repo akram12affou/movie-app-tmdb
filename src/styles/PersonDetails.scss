@@ -13,7 +13,8 @@
     .movies{
         display: flex;
         flex-wrap: wrap;
-     
+        width: 80vw;
+        margin: 0 auto;
         justify-content: center;
         gap: calc(3vw + 8px);
         min-height: calc(100vh - 70px);

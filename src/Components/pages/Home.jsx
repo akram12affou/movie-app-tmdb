@@ -10,8 +10,8 @@ import {
 } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import "../../styles/Home.css";
-function Home({ query }) {
+import "../../styles/Home.scss";
+function Home({ query,setQuery }) {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -104,13 +104,13 @@ function Home({ query }) {
           <>
             {" "}
             {loading ? (
-              <LoadingSpinner />
+             <> <LoadingSpinner /></>
             ) : (
               <>
                 {movieBranch == "popular" && (
                   <>
                     {PopularMovies.map((movie) => {
-                      return <MovieCart movie={movie} />;
+                      return <MovieCart  movie={movie} />;
                     })}
                   </>
                 )}
@@ -118,14 +118,14 @@ function Home({ query }) {
                 {movieBranch == "Toprated" && (
                   <>
                     {topRated.map((movie) => {
-                      return <MovieCart movie={movie} />;
+                      return <MovieCart  movie={movie} />;
                     })}
                   </>
                 )}
                 {movieBranch == "Upcoming" && (
                   <>
                     {upComing.map((movie) => {
-                      return <MovieCart movie={movie} />;
+                      return <MovieCart  movie={movie} />;
                     })}
                   </>
                 )}
@@ -137,11 +137,11 @@ function Home({ query }) {
           {!loading ? (
             <div className="movies">
               {searchMovies.map((movie) => {
-                return <MovieCart movie={movie} />;
+                return <MovieCart setQuery={setQuery} search={'search'} movie={movie} />;
               })}
             </div>
           ) : (
-            query !== "" && <LoadingSpinner />
+            query !== "" && <><LoadingSpinner /></>
           )}
         </div>
       </div>

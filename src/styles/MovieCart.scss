@@ -2,18 +2,12 @@
   position: relative;
     
    img{
-    width: calc(70px + 10vw);
-    border-radius: 10px;
+    width: calc(40px + 10vw);
+    border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
    }
-   .img-null{
-    width: calc(70px + 10vw);
-    border-radius: 10px;
-    cursor: pointer;
-    background: #000;
-    color: aqua;
-   }
+
    img:hover{
     filter:grayscale(0.5);
     transform: translateY(-1px);
@@ -47,5 +41,10 @@
    border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
    }
-  
+   @media screen and (max-width: 768px) {
+    img{
+      width: calc(100px + 10vw);
+ 
+     }
+  }
 }
