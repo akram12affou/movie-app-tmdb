@@ -57,6 +57,7 @@ function MovieDetails({query}) {
 
         }}><LoadingSpinner /></div> 
       )}
+      
     </>
   );
 }

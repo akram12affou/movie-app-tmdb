@@ -8,18 +8,39 @@ body{
   color:rgb(255, 255, 255);
   background-color: #141414;
   font-size: 12px;
-  img{
-    width: 160px;
+  .person-img{
+    width: calc(40px + 10vw);
+    height: calc((40px + 10vw)*1.5);
     border-radius: 5px;
     cursor: pointer;
     object-fit: cover;
+    background-color: #141414;
     transition: all 0.2s ease-in-out;
   }
-  img:hover{
+  .img{
+    width: calc(40px + 10vw);
+    height: calc((40px + 10vw)*1.5);
+    border-radius: 5px;
+    cursor: pointer;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0a0a0a;
+    transition: all 0.2s ease-in-out;
+  }
+  .person-img:hover,.img:hover{
     filter:grayscale(0.5);
+    background-color: #080808;
     transform: translateY(-1px);
   }
   div .name{
     font-weight: bolder;
+  }
+  @media screen and (max-width: 768px) {
+    .person-img,.img{
+      width: calc(100px + 10vw);
+      height: calc((100px + 10vw)*1.5);
+     }
   }
 }

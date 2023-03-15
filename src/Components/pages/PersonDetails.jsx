@@ -1,9 +1,11 @@
 import axios from "axios";
 import MovieCart from '../MovieCart'
+
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams,useNavigate } from "react-router-dom";
 import "../../styles/PersonDetails.scss";
+import PersonIcon from '@mui/icons-material/Person';
 import { fetchPersonDetails,fetchFilmsByPerson } from "../../redux/actions";
 import LoadingSpinner from "../layout/LoadingSpinner";
 function PersonDetails({query}) {
@@ -47,11 +49,11 @@ function PersonDetails({query}) {
             return (
               <div className="person-container-1">
                 <div className="img-container">
-                  <img
+                 {e.profile_path ? <img
                   className="img"
                     src={`https://image.tmdb.org/t/p/w400/${e.profile_path}`}
                     alt=""
-                  />
+                  /> : <div  className="img"><PersonIcon/></div>}
                 </div>
                 <div className="details-container">
                   <h3>{e.name}</h3>

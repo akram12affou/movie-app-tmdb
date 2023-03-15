@@ -3,12 +3,16 @@
     color:white;
     padding-top: 20px;
     width: 100vw;
-    height: 70vh;
+    min-height: 70vh;
     
     display: flex;
     justify-content: center;
     gap:15px;
-   
+    .films-img{
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+    }
     div img{
       width: calc(110px + 15vw);
    
@@ -34,11 +38,24 @@
         border-bottom-right-radius: 5px;
         padding: 2px;
        }
+       
+       .img-null{
+        margin:0 auto;
+        border-radius: 4px;
+        object-fit: cover;
+        background: #0a0a0a;
+        width: calc(110px + 15vw);
+        height:  calc((110px + 15vw)*1.5);
+        :hover{
+           background: #040404;
+        }
+       }
 
     }
     .details{
         display: flex;
         width: 50vw;
+        margin-right: 20px;
         flex-direction: column;
         justify-content: space-between;
         align-items: start;

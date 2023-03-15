@@ -7,7 +7,8 @@ const initialState = {
   MovieDetails :[],
   MovieDetailsCast: [],
   PersonDetails:[],
-  FilmsByPerson:[]
+  FilmsByPerson:[],
+  imagesForFilm: []
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -29,6 +30,9 @@ export default (state = initialState, { type, payload }) => {
         return { ...state , PersonDetails : [payload] }
       case 'FetchFilmsByPerson':
         return { ...state , FilmsByPerson : [payload] }
+      case 'FetchFilmImages':
+        return { ...state , imagesForFilm : payload }
+
   default:
     return state
   }

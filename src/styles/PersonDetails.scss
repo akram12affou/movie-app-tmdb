@@ -36,7 +36,12 @@
     gap: 10px;
     padding-top: 20px;
      .img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #101010;
         height: 35vw;
+        width: 70vw;
         border-radius: 5px;
         object-fit: contain;
      }
@@ -70,7 +75,8 @@ h1{
         grid-template-columns: 35% 65%;
         width: 90vw;
         padding-top: 20px;
-         img{
+         .img{
+            width: 70vw;
             height: 45vw;
             border-radius: 5px;
          }

@@ -1,14 +1,22 @@
 .movie-cart-container{
   position: relative;
     
-   img{
+   .img{
     width: calc(40px + 10vw);
+    height: calc((40px + 10vw)*1.5);
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    color:aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  background-color: #262626;
+  font-size: 1rem;
    }
 
-   img:hover{
+   .img:hover{ 
+    background-color: #101010;
     filter:grayscale(0.5);
     transform: translateY(-1px);
    }
@@ -42,9 +50,9 @@
     border-bottom-right-radius: 5px;
    }
    @media screen and (max-width: 768px) {
-    img{
+    .img{
       width: calc(100px + 10vw);
- 
+      height: calc((100px + 10vw)*1.5);
      }
   }
 }

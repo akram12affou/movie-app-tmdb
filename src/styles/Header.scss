@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
 body{
     font-family: 'Poppins', sans-serif;
     padding: 0;
@@ -10,15 +10,16 @@ body{
     align-items: center;
     justify-content: space-evenly;
     
-    gap: 20vw;
+    gap: 25vw;
     background: #1f1f1f;
     color:rgb(255, 255, 255);
     height: 70px;
     div h2{
         cursor: pointer;
-        font-size: calc(1rem + 0.6vw);
+        font-size: calc(0.9rem + 0.7vw);
         margin-left: 5vw;
-        font-weight: bolder;
+        font-weight: 800;
+        
         letter-spacing: 2px;
     }
     .navBar-search{
@@ -40,4 +41,7 @@ body{
     .favorite-icon{
         cursor:pointer;
     }
+    @media screen and (max-width: 768px) {
+        gap: 5vw;
+      }
 }
