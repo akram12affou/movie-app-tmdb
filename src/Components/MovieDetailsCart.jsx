@@ -8,6 +8,7 @@ import { useState } from "react";
 import axios from "axios";
 function MovieDetailsCart({ movie, movieDetailsCast }) {
   const [showing, setShowing] = useState(6);
+  const [loadimages , setLoadImages] = useState(false)
   const dispatch = useDispatch()
   const {
     id,
@@ -25,8 +26,8 @@ function MovieDetailsCart({ movie, movieDetailsCast }) {
     axios.get(`https://api.themoviedb.org/3/movie/${id}/images?api_key=${REACT_APP_TMDB_KEY}`)
     .then((res) => {
       
-      dispatch(fetchFilmImages(res.data.backdrops.slice(0,5)))
-    })
+      dispatch(fetchFilmImages(res.data.backdrops.slice(0,15)))
+    }).then(res => setLoadImages(true))
       
    },[])
 
@@ -113,7 +114,12 @@ function MovieDetailsCart({ movie, movieDetailsCast }) {
           })}
         </div>
         <div className="films-img">
-          <FilmsImages/>
+          <div className="films-img-container">
+          <h2>Images</h2>
+          <div></div>
+          </div>
+          
+          {loadimages && <FilmsImages/>}
         </div>
       </div>
     </>

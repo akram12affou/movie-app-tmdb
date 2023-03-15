@@ -8,11 +8,7 @@
     display: flex;
     justify-content: center;
     gap:15px;
-    .films-img{
-      display: flex;
-      justify-content: center;
-      margin: 0 auto;
-    }
+ 
     div img{
       width: calc(110px + 15vw);
    
@@ -89,6 +85,7 @@ padding: 5px;
     }
     
 }
+
 .person-all-container{
   
   background-color: #141414;
@@ -108,6 +105,12 @@ padding: 5px;
       border-radius: 5px;
       cursor: pointer;
     }
+  }
+  
+  .films-img-container{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20vw;
   }
 }
 
