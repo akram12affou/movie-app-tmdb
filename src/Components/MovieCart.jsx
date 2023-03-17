@@ -21,7 +21,7 @@ function MovieCart({ movie, setQuery, search }) {
         <div className="movie-cart-container" key={id}>
           <span
             className="avereage"
-            style={{ background: vote_average > 7 && "#397200" }}
+            style={{ background: vote_average >= 7 && "#397200" }}
           >
             {vote_average}
           </span>

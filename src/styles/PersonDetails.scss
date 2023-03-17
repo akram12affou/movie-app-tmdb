@@ -70,7 +70,56 @@ h1{
         font-size: 25px;
         letter-spacing: 1px;
     }
+   
 }
+.big-img-container{
+     width: 100vw;
+     position: fixed;
+     top:50%;
+     margin: 0 auto;
+    
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    .big-img{
+    position: absolute;
+   
+    
+    
+    border: none;
+    
+     button{
+        transition: all 0.2s ease;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        border-radius: 50%;
+        cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    width: 30px;
+    height: 30px;
+    background: #ffffff;
+    font-weight: bolder;
+    
+     }
+     button:hover{
+        transform: scale(1.09);
+    
+     }
+     img{
+        border: white 1px solid;
+        margin: 0 auto;
+        width: calc((400px + 20vw) * 0.677) ;
+        height: calc(400px + 20vw);
+        background: #777777;
+     }
+
+}}
+
 
 
 @media screen and (max-width :768px) {

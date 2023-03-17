@@ -6,6 +6,7 @@ import {fetchFilmImages} from '../redux/actions'
 import FilmsImages from "./FilmsImages";
 import { useState } from "react";
 import axios from "axios";
+import MovieRecomendations from "./MovieRecomendations";
 function MovieDetailsCart({ movie, movieDetailsCast,open,setOpen }) {
   const [showing, setShowing] = useState(6);
   const [loadimages , setLoadImages] = useState(false)
@@ -53,7 +54,7 @@ function MovieDetailsCart({ movie, movieDetailsCast,open,setOpen }) {
           ) : (
             <div className="img-null"></div>
           )}
-          <span>{vote_average}</span>
+          <span>{vote_average.toFixed(2)}</span>
         </div>
         <div className="details">
           <div>
@@ -124,6 +125,7 @@ function MovieDetailsCart({ movie, movieDetailsCast,open,setOpen }) {
           
           {loadimages && <FilmsImages open={open} setOpen={setOpen} />}
         </div>
+        <MovieRecomendations id={id}/>
       </div>
     </div>
   );

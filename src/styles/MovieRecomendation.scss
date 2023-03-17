@@ -1,0 +1,20 @@
+.movies{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin: 0 auto;
+    justify-content: center;
+    gap: calc(3vw + 8px);
+   
+
+}
+.recomendation-title-h2{
+    margin-left: 20vw;
+}
+.paginations-2{
+    background: #949494;
+    margin: 0 auto;
+    width: fit-content;
+    border-radius: 5px;
+    
+}

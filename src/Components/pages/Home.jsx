@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MovieCart from "../MovieCart";
 import LoadingSpinner from "../layout/LoadingSpinner";
+import Checkbox from '@mui/material/Checkbox';
 import Pagination from "@mui/material/Pagination";
 import {
   fetchPopularMovies,
@@ -15,6 +16,7 @@ function Home({ query,setQuery }) {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
+  const [adult,setAdult] = useState(false)
   const [movieBranch, setMovieBranch] = useState("popular");
   const PopularMovies = useSelector((state) => state.popularMovies);
   const topRated = useSelector((state) => state.topRated);
@@ -42,18 +44,19 @@ function Home({ query,setQuery }) {
         setLoading(false);
       });
   }, []);
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   useEffect(() => {
     if (query == "") return;
     setLoading(true);
     axios
       .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_TMDB_KEY}&language=en-US&page=${page}&include_adult=${true}&query=${query}`
+        `https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_TMDB_KEY}&language=en-US&page=${page}&include_adult=${adult}&query=${query}`
       )
       .then((res) => dispatch(fetchSearchMovies(res.data)))
       .then((res) => {
         setLoading(false);
       });
-  }, [query, page]);
+  }, [query, page,adult]);
   const handleChange = (event, value) => {
     window.scroll(0, 0);
     setPage(value);
@@ -136,11 +139,30 @@ function Home({ query,setQuery }) {
    {query.length!==0 && 
     <div className="search">
           {!loading ? (
+            <>  
+            <div style={{
+              color:'white',
+              display:'flex',
+              justifyContent:'flex-end',
+              alignItems:'center'
+            }}>   <Checkbox color="secondary" onChange={() => {
+              adult ? setAdult(false) :  setAdult(true)
+              }} checked={adult} /> 18+ </div>
+          
             <div className="movies">
+             
               {searchMovies.map((movie) => {
-                return <MovieCart setQuery={setQuery} search={'search'} movie={movie} />;
+                return( 
+                  <>
+                  
+                  <MovieCart setQuery={setQuery} search={'search'} movie={movie} />
+                  </>
+                
+
+                )
               })}
-            </div>
+            </div></>
+           
           ) : (
             query !== "" && <><LoadingSpinner /></>
           )}

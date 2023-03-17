@@ -9,9 +9,13 @@ import PersonIcon from '@mui/icons-material/Person';
 import { fetchPersonDetails,fetchFilmsByPerson } from "../../redux/actions";
 import LoadingSpinner from "../layout/LoadingSpinner";
 import PersonImages from "../PersonImages";
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 function PersonDetails({query}) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+    const [openPersonImg,setOpenPersonImage] = useState(false)
+  const [imgPath,setImgPath] = useState('')
   const REACT_APP_TMDB_KEY = "4a16a312cc25534aac7bab9f0901fa3b";
   const PersonDetails = useSelector((state) => state.PersonDetails);
   const FilmsByPerson = useSelector((state) => state.FilmsByPerson);
@@ -75,7 +79,7 @@ function PersonDetails({query}) {
                     <span className="bio">{e.biography}</span>
                   </div>}
                   <div>
-                   <PersonImages id={id}/> 
+                   <PersonImages id={id} setImgPath={setImgPath} setOpenPersonImage={setOpenPersonImage}/> 
                   </div>
                   
                 </div>
@@ -100,6 +104,13 @@ function PersonDetails({query}) {
         color: 'white'}}
         ><LoadingSpinner /></div>
       )}
+         {openPersonImg &&
+         <div className="big-img-container">
+        <div className="big-img">
+          <button onClick={() => setOpenPersonImage(false)}><CloseRoundedIcon/></button>
+         <LazyLoadImage src={`https://image.tmdb.org/t/p/original///${imgPath}`} alt="" />
+        </div></div>
+        }
     </div>
   );
 }

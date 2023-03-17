@@ -14,7 +14,10 @@ function Header({query,setQuery}) {
          <h2 onClick={() => toTheHome()}>CINEMAGIC</h2>
         </div>
         <div className='navBar-search'>
+            
+            
             <input type="text" placeholder='search a movie' value={query} onChange={(e) => {setQuery(e.target.value)}} />
+            
             <div className='favorite-icon'><FavoriteBorderIcon/></div>
 
         </div>
