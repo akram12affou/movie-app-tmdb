@@ -90,21 +90,26 @@ h1{
     border: none;
     
      button{
-        transition: all 0.2s ease;
-        position: absolute;
-        top: -10px;
-        left: -10px;
-        border-radius: 50%;
-        cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    width: 30px;
-    height: 30px;
+        
+        
+        top: 15px;
+        left: 10px;
+        
     background: #ffffff;
-    font-weight: bolder;
-    
+    cursor: pointer;
+    position: relative;
+    z-index: 1000;
+    width: 40px;
+    height:36px;
+    background: #ffffff;
+    color:rgb(0, 0, 0);
+   display: flex;
+   justify-content: center;
+    align-items: center;
+    border: 3px solid rgb(255, 0, 0);
+    font-weight: 800;
+   transition: all 0.2s ease;
+    border-radius: 30%;
      }
      button:hover{
         transform: scale(1.09);

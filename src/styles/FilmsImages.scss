@@ -42,7 +42,7 @@
 .modal-container{
     position: fixed;
     top:10%;
-    // z-index: 90;
+    z-index: 90;
   
     border: none;
     display: flex;
@@ -63,21 +63,21 @@
         cursor: pointer;
         position: relative;
         z-index: 1000;
-        width: 30px;
-        height:30px;
+        width: 40px;
+        height:36px;
         background: #ffffff;
         color:rgb(0, 0, 0);
        display: flex;
        justify-content: center;
         align-items: center;
-        border: 1px solid black;
-        font-weight: bolder;
-        font-size: 1.2rem;
+        border: 3px solid rgb(255, 0, 0);
+        font-weight: 800;
+     
        transition: all 0.2s ease;
-        border-radius: 50%;
+        border-radius: 30%;
       }
       div .button:hover{
-        transform: scale(1.04);
+        transform: scale(1.05);
       }
       @media screen and (max-width: 768px) {
         .img-1 img{

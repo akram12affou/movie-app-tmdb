@@ -64,3 +64,15 @@ export const fetchRecomnedationFilm = (url) => {
         payload:url
      }
 }
+export const addMovieToWatchedList = (item) => {
+     return{
+        type:'AddMovieToWatchedList',
+        payload:item
+     }
+}
+export const removeMovieToWatchedList = (item) => {
+     return{
+        type:'RemoveMovieToWatchedList',
+        payload:item
+     }
+}

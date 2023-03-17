@@ -44,7 +44,6 @@ function Home({ query,setQuery }) {
         setLoading(false);
       });
   }, []);
-  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   useEffect(() => {
     if (query == "") return;
     setLoading(true);

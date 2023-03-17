@@ -9,8 +9,7 @@ function MovieRecomendations({id}) {
     const REACT_APP_TMDB_KEY = "4a16a312cc25534aac7bab9f0901fa3b";
     const [page, setPage] = useState(1);
     const handleChange = (event, value) => {
-      window.scrollTo({top:1500,
-      behavior:'smooth'} );
+      document.querySelector('.recomendation-title-h2')?.scrollIntoView( { behavior: 'smooth', block: 'start' } );
       setPage(value);
     };
      const dispatch = useDispatch()
@@ -18,7 +17,9 @@ function MovieRecomendations({id}) {
       useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${REACT_APP_TMDB_KEY}&language=en-US&page=${page}`)
         .then((res)=> {
-            dispatch(fetchRecomnedationFilm(res.data.results))
+          res.data.results.length!==0 && dispatch(fetchRecomnedationFilm(res.data.results))
+
+          
         })
       },[page])
       console.log(Recomendation)
@@ -35,14 +36,16 @@ function MovieRecomendations({id}) {
                 })}
        </div>
        <br />
+       {Recomendation.length!==0 && 
        <div className="paginations-2">
           <Pagination
-            count={3}
+            count={2}
             onChange={handleChange}
             color="primary"
           />
           
         </div>
+        }
         <br />
     </div>
   )

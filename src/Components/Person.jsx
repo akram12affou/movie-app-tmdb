@@ -24,9 +24,9 @@ function Person({ person }) {
         </div>
       )}
       <div>
-        <span className="name">{name}</span>
+        <span className="name">{name.substring(0,8)}...</span>
         <br />
-        <span>{character}</span>
+        <span>{character.substring(0,8)}...</span>
       </div>
     </div>
   );

@@ -10,7 +10,8 @@ const initialState = {
   FilmsByPerson: [],
   imagesForFilm: [],
   imagesForPerson: [],
-  RecomnedationFilm: []
+  RecomnedationFilm: [],
+  WatchedListFilms:[]
 
 };
 
@@ -36,8 +37,12 @@ export default (state = initialState, { type, payload }) => {
       return { ...state, imagesForFilm: payload };
     case "FetchPersonImages":
       return { ...state, imagesForPerson: payload };
-    case 'FetchRecomnedationFilm' :
+    case 'FetchRecomnedationFilm':
       return {...state, RecomnedationFilm: payload }
+    case 'AddMovieToWatchedList':
+      return {...state, WatchedListFilms:[...state.WatchedListFilms ,payload] }
+    case 'RemoveMovieToWatchedList':
+      return {...state, WatchedListFilms:state.WatchedListFilms.filter((e) => e.id!==payload.id)}
     default:
       return state;
   }

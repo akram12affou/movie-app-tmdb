@@ -1,0 +1,18 @@
+body{
+      background: #141414;
+}
+.watched-list-title{
+      color:white;
+      margin-left: 20vw;
+}
+.movies{
+        display: flex;
+        flex-wrap: wrap;
+        
+        margin: 0 auto;
+        justify-content: center;
+        gap: calc(3vw + 8px);
+        min-height: calc(100vh - 70px);
+       
+      
+}

@@ -27,7 +27,7 @@
        position: relative;
        span{
         position: absolute;
-        background: #0dff00;
+        background: green;
         top:10px;
         left: 0;
         border-top-right-radius: 5px;
@@ -93,6 +93,7 @@ padding: 5px;
   padding-top:10px;
   
   .billed-show{
+   
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -120,7 +121,7 @@ padding: 5px;
   background: #141414;
 }
 .person-container{
-  width: 90vw;
+  width: 80vw;
   display: flex;
   flex-wrap: wrap;
   gap:20px;
