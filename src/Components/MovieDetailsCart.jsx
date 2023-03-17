@@ -1,14 +1,15 @@
 import React, {useEffect} from "react";
 import "../styles/MovieDetailsCart.scss";
 import Person from "./Person";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import {fetchFilmImages} from '../redux/actions'
 import FilmsImages from "./FilmsImages";
 import { useState } from "react";
 import axios from "axios";
-function MovieDetailsCart({ movie, movieDetailsCast }) {
+function MovieDetailsCart({ movie, movieDetailsCast,open,setOpen }) {
   const [showing, setShowing] = useState(6);
   const [loadimages , setLoadImages] = useState(false)
+  const imagesForFilm = useSelector((state) => state.imagesForFilm);
   const dispatch = useDispatch()
   const {
     id,
@@ -39,9 +40,11 @@ function MovieDetailsCart({ movie, movieDetailsCast }) {
     }
   };
   return (
-    <>
-      <div key={id} className="movie-details">
-        <div className="img-container">
+    <div >
+      <div key={id} className="movie-details" onClick={() => setOpen(false)} 
+   
+    >
+        <div className="img-container" >
           {poster_path ? (
             <img
               src={`https://image.tmdb.org/t/p/w400/${poster_path}`}
@@ -113,16 +116,16 @@ function MovieDetailsCart({ movie, movieDetailsCast }) {
             return <Person person={person} />;
           })}
         </div>
-        <div className="films-img">
+        <div className="films-img"   onClick={() => open && setOpen(false)}>
           <div className="films-img-container">
-          <h2>Images</h2>
+         {imagesForFilm.length!==0 && <h2>Images</h2>}
           <div></div>
           </div>
           
-          {loadimages && <FilmsImages/>}
+          {loadimages && <FilmsImages open={open} setOpen={setOpen} />}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

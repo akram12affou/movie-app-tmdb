@@ -8,6 +8,7 @@ import "../../styles/PersonDetails.scss";
 import PersonIcon from '@mui/icons-material/Person';
 import { fetchPersonDetails,fetchFilmsByPerson } from "../../redux/actions";
 import LoadingSpinner from "../layout/LoadingSpinner";
+import PersonImages from "../PersonImages";
 function PersonDetails({query}) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -41,6 +42,7 @@ function PersonDetails({query}) {
         setLoading(false);
       });
   }, []);
+  
   return (
     <div className="persons-details-container">
       {!loading ? (
@@ -72,6 +74,10 @@ function PersonDetails({query}) {
                     <span className="title">Biography:</span>
                     <span className="bio">{e.biography}</span>
                   </div>}
+                  <div>
+                   <PersonImages id={id}/> 
+                  </div>
+                  
                 </div>
               </div>
             );
@@ -80,7 +86,6 @@ function PersonDetails({query}) {
           <div className="movies">
           {FilmsByPerson[0]?.cast?.map((movie) => {
             return(
-            
             <MovieCart movie={movie}/>
             )
           })}
@@ -94,7 +99,6 @@ function PersonDetails({query}) {
         background:'#141414',
         color: 'white'}}
         ><LoadingSpinner /></div>
-        
       )}
     </div>
   );

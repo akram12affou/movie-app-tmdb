@@ -52,3 +52,9 @@ export const fetchFilmImages = (url) => {
         payload:url
      }
 }
+export const fetchPersonImages = (url) => {
+     return{
+        type:'FetchPersonImages',
+        payload:url
+     }
+}

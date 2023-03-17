@@ -6,6 +6,8 @@ import LoadingSpinner from "../layout/LoadingSpinner";
 import MovieDetailsCart from "../MovieDetailsCart";
 import { fetchMovieDetails, fetchMovieDetailsCast } from "../../redux/actions";
 function MovieDetails({query}) {
+  const [open , setOpen] = useState(false)
+
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false);
   const movieDetails = useSelector((state) => state.MovieDetails);
@@ -42,11 +44,11 @@ function MovieDetails({query}) {
   return (
     <>
       {loading ? (
-        <>
+        <div >
           {movieDetails.map((movie) => {
-            return <MovieDetailsCart movie={movie} movieDetailsCast={movieDetailsCast}/>;
+            return <MovieDetailsCart open={open} setOpen={setOpen} movie={movie} movieDetailsCast={movieDetailsCast}/>;
           })}
-        </>
+        </div>
       ) : (
         <div style={{
           display: 'flex',

@@ -43,13 +43,13 @@
     position: fixed;
     top:10%;
     // z-index: 90;
-   
+  
     border: none;
     display: flex;
   align-items: center;
       justify-content: center;
       .img-1 img{
-        width: calc(500px + 20vw);
+        width: calc(500px + 27vw);
         border-radius: 0;
         border: 1px solid white;
         background: #d1d1d1;
@@ -63,23 +63,25 @@
         cursor: pointer;
         position: relative;
         z-index: 1000;
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height:30px;
         background: #ffffff;
         color:rgb(0, 0, 0);
-        border: none;
-        width: 100px;
+       display: flex;
+       justify-content: center;
+        align-items: center;
+        border: 1px solid black;
         font-weight: bolder;
         font-size: 1.2rem;
        transition: all 0.2s ease;
-        // border-radius: 50%;
+        border-radius: 50%;
       }
       div .button:hover{
-        transform: scale(1.1);
+        transform: scale(1.04);
       }
       @media screen and (max-width: 768px) {
         .img-1 img{
-            width: calc(300px + 20vw);
+            width: 85vw;
          }
       }
 }

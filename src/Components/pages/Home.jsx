@@ -133,7 +133,8 @@ function Home({ query,setQuery }) {
             )}
           </>
         )}
-        <div className="search">
+   {query.length!==0 && 
+    <div className="search">
           {!loading ? (
             <div className="movies">
               {searchMovies.map((movie) => {
@@ -143,7 +144,7 @@ function Home({ query,setQuery }) {
           ) : (
             query !== "" && <><LoadingSpinner /></>
           )}
-        </div>
+        </div>}
       </div>
       {query !== "" && (
         <div className="pagination">
