@@ -13,7 +13,7 @@ function Person({ person }) {
     <div className="person" key={id}>
       {profile_path ? (
         <LazyLoadImage
-        className="person-img"
+          className="person-img"
           onClick={() => navigatetoPersonDetails(id)}
           src={`https://image.tmdb.org/t/p/w400/${profile_path}`}
           alt=""
@@ -24,9 +24,9 @@ function Person({ person }) {
         </div>
       )}
       <div>
-        <span className="name">{name.substring(0,8)}...</span>
+        <span className="name">{name.substring(0, 8)}...</span>
         <br />
-        <span>{character.substring(0,8)}...</span>
+        <span>{character.substring(0, 8)}...</span>
       </div>
     </div>
   );

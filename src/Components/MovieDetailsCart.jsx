@@ -1,17 +1,17 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import "../styles/MovieDetailsCart.scss";
 import Person from "./Person";
-import { useDispatch,useSelector } from "react-redux";
-import {fetchFilmImages} from '../redux/actions'
+import { useDispatch, useSelector } from "react-redux";
+import { fetchFilmImages } from "../redux/actions";
 import FilmsImages from "./FilmsImages";
 import { useState } from "react";
 import axios from "axios";
 import MovieRecomendations from "./MovieRecomendations";
-function MovieDetailsCart({ movie, movieDetailsCast,open,setOpen }) {
+function MovieDetailsCart({ movie, movieDetailsCast, open, setOpen }) {
   const [showing, setShowing] = useState(6);
-  const [loadimages , setLoadImages] = useState(false)
+  const [loadimages, setLoadImages] = useState(false);
   const imagesForFilm = useSelector((state) => state.imagesForFilm);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const {
     id,
     release_date,
@@ -24,14 +24,16 @@ function MovieDetailsCart({ movie, movieDetailsCast,open,setOpen }) {
     vote_average,
   } = movie;
   const REACT_APP_TMDB_KEY = "4a16a312cc25534aac7bab9f0901fa3b";
-   useEffect(()=> {
-    axios.get(`https://api.themoviedb.org/3/movie/${id}/images?api_key=${REACT_APP_TMDB_KEY}`)
-    .then((res) => {
-      
-      dispatch(fetchFilmImages(res.data.backdrops.slice(0,15)))
-    }).then(res => setLoadImages(true))
-      
-   },[])
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}/images?api_key=${REACT_APP_TMDB_KEY}`
+      )
+      .then((res) => {
+        dispatch(fetchFilmImages(res.data.backdrops.slice(0, 15)));
+      })
+      .then((res) => setLoadImages(true));
+  }, []);
 
   const showfunc = () => {
     if (showing == 6) {
@@ -41,11 +43,9 @@ function MovieDetailsCart({ movie, movieDetailsCast,open,setOpen }) {
     }
   };
   return (
-    <div >
-      <div key={id} className="movie-details" onClick={() => setOpen(false)} 
-   
-    >
-        <div className="img-container" >
+    <div>
+      <div key={id} className="movie-details" onClick={() => setOpen(false)}>
+        <div className="img-container">
           {poster_path ? (
             <img
               src={`https://image.tmdb.org/t/p/w400/${poster_path}`}
@@ -117,15 +117,15 @@ function MovieDetailsCart({ movie, movieDetailsCast,open,setOpen }) {
             return <Person person={person} />;
           })}
         </div>
-        <div className="films-img"   onClick={() => open && setOpen(false)}>
+        <div className="films-img" onClick={() => open && setOpen(false)}>
           <div className="films-img-container">
-         {imagesForFilm.length!==0 && <h2>Images</h2>}
-          <div></div>
+            {imagesForFilm.length !== 0 && <h2>Images</h2>}
+            <div></div>
           </div>
-          
+
           {loadimages && <FilmsImages open={open} setOpen={setOpen} />}
         </div>
-        <MovieRecomendations id={id}/>
+        <MovieRecomendations id={id} />
       </div>
     </div>
   );

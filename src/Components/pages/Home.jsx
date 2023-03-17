@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MovieCart from "../MovieCart";
 import LoadingSpinner from "../layout/LoadingSpinner";
-import Checkbox from '@mui/material/Checkbox';
+import Checkbox from "@mui/material/Checkbox";
 import Pagination from "@mui/material/Pagination";
 import {
   fetchPopularMovies,
@@ -12,11 +12,11 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import "../../styles/Home.scss";
-function Home({ query,setQuery }) {
+function Home({ query, setQuery }) {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const [adult,setAdult] = useState(false)
+  const [adult, setAdult] = useState(false);
   const [movieBranch, setMovieBranch] = useState("popular");
   const PopularMovies = useSelector((state) => state.popularMovies);
   const topRated = useSelector((state) => state.topRated);
@@ -55,7 +55,7 @@ function Home({ query,setQuery }) {
       .then((res) => {
         setLoading(false);
       });
-  }, [query, page,adult]);
+  }, [query, page, adult]);
   const handleChange = (event, value) => {
     window.scroll(0, 0);
     setPage(value);
@@ -106,13 +106,16 @@ function Home({ query,setQuery }) {
           <>
             {" "}
             {loading ? (
-             <> <LoadingSpinner /></>
+              <>
+                {" "}
+                <LoadingSpinner />
+              </>
             ) : (
               <>
                 {movieBranch == "popular" && (
                   <>
                     {PopularMovies.map((movie) => {
-                      return <MovieCart  movie={movie} />;
+                      return <MovieCart movie={movie} />;
                     })}
                   </>
                 )}
@@ -120,14 +123,14 @@ function Home({ query,setQuery }) {
                 {movieBranch == "Toprated" && (
                   <>
                     {topRated.map((movie) => {
-                      return <MovieCart  movie={movie} />;
+                      return <MovieCart movie={movie} />;
                     })}
                   </>
                 )}
                 {movieBranch == "Upcoming" && (
                   <>
                     {upComing.map((movie) => {
-                      return <MovieCart  movie={movie} />;
+                      return <MovieCart movie={movie} />;
                     })}
                   </>
                 )}
@@ -135,37 +138,52 @@ function Home({ query,setQuery }) {
             )}
           </>
         )}
-   {query.length!==0 && 
-    <div className="search">
-          {!loading ? (
-            <>  
-            <div style={{
-              color:'white',
-              display:'flex',
-              justifyContent:'flex-end',
-              alignItems:'center'
-            }}>   <Checkbox color="secondary" onChange={() => {
-              adult ? setAdult(false) :  setAdult(true)
-              }} checked={adult} /> 18+ </div>
-          
-            <div className="movies">
-             
-              {searchMovies.map((movie) => {
-                return( 
-                  <>
-                  
-                  <MovieCart setQuery={setQuery} search={'search'} movie={movie} />
-                  </>
-                
+        {query.length !== 0 && (
+          <div className="search">
+            {!loading ? (
+              <>
+                <div
+                  style={{
+                    color: "white",
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    alignItems: "center",
+                  }}
+                >
+                  {" "}
+                  <Checkbox
+                    color="secondary"
+                    onChange={() => {
+                      adult ? setAdult(false) : setAdult(true);
+                    }}
+                    checked={adult}
+                  />{" "}
+                  18+{" "}
+                </div>
 
-                )
-              })}
-            </div></>
-           
-          ) : (
-            query !== "" && <><LoadingSpinner /></>
-          )}
-        </div>}
+                <div className="movies">
+                  {searchMovies.map((movie) => {
+                    return (
+                      <>
+                        <MovieCart
+                          setQuery={setQuery}
+                          search={"search"}
+                          movie={movie}
+                        />
+                      </>
+                    );
+                  })}
+                </div>
+              </>
+            ) : (
+              query !== "" && (
+                <>
+                  <LoadingSpinner />
+                </>
+              )
+            )}
+          </div>
+        )}
       </div>
       {query !== "" && (
         <div className="pagination">
