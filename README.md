@@ -1,0 +1,2 @@
+# movie-app-tmdb
+Cinemagic is a sleek and efficient movie app that has been expertly crafted using React , Redux, Sass , and Material UI. With a powerful API at its core, Cinemagic is capable of bringing you the latest information on top-rated, popular, and upcoming movies, all at the touch of a button. Whether you want to explore movie details and actor information or simply keep track of your own watch list .
