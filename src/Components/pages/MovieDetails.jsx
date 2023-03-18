@@ -18,20 +18,19 @@ function MovieDetails({ query }) {
     if (query == "") return;
     navigate("/");
   }, [query]);
-  const REACT_APP_TMDB_KEY = "4a16a312cc25534aac7bab9f0901fa3b";
   useEffect(() => {
     window.scroll(0, 0);
     setLoading(false);
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${REACT_APP_TMDB_KEY}&language=en-US`
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${import.meta.env.VITE_REACT_APP_TMDB_KEY}&language=en-US`
       )
       .then((res) => {
         dispatch(fetchMovieDetailsCast(res.data));
       });
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=${REACT_APP_TMDB_KEY}&language=en-US`
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_REACT_APP_TMDB_KEY}&language=en-US`
       )
       .then((res) => {
         dispatch(fetchMovieDetails(res.data));

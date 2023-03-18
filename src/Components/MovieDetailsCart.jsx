@@ -23,11 +23,10 @@ function MovieDetailsCart({ movie, movieDetailsCast, open, setOpen }) {
     runtime,
     vote_average,
   } = movie;
-  const REACT_APP_TMDB_KEY = "4a16a312cc25534aac7bab9f0901fa3b";
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${id}/images?api_key=${REACT_APP_TMDB_KEY}`
+        `https://api.themoviedb.org/3/movie/${id}/images?api_key=${import.meta.env.VITE_REACT_APP_TMDB_KEY}`
       )
       .then((res) => {
         dispatch(fetchFilmImages(res.data.backdrops.slice(0, 15)));

@@ -21,6 +21,8 @@
         object-fit: cover;
         border-radius: 5px;
         width: 400px;
+        height: calc(400px / 1.778);
+        background: #999999;
         transition: all 0.2s ease-in-out;
         cursor: pointer;
         
@@ -31,6 +33,8 @@
     @media screen and (max-width: 768px) {
         .img-2{
         width: 200px;
+        height: calc(200px / 1.778);
+        background: #999999;
          }
       }
   }

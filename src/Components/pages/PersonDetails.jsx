@@ -16,7 +16,6 @@ function PersonDetails({query}) {
   const [loading, setLoading] = useState(false);
     const [openPersonImg,setOpenPersonImage] = useState(false)
   const [imgPath,setImgPath] = useState('')
-  const REACT_APP_TMDB_KEY = "4a16a312cc25534aac7bab9f0901fa3b";
   const PersonDetails = useSelector((state) => state.PersonDetails);
   const FilmsByPerson = useSelector((state) => state.FilmsByPerson);
   const { id } = useParams();
@@ -30,14 +29,14 @@ function PersonDetails({query}) {
     setLoading(true);
     axios
       .get(
-        `https://api.themoviedb.org/3/person/${id}?api_key=${REACT_APP_TMDB_KEY}&language=en-US`
+        `https://api.themoviedb.org/3/person/${id}?api_key=${import.meta.env.VITE_REACT_APP_TMDB_KEY}&language=en-US`
       )
       .then((res) => {
         dispatch(fetchPersonDetails(res.data));
       })
     axios
       .get(
-        `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${REACT_APP_TMDB_KEY}&language=en-US`
+        `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${import.meta.env.VITE_REACT_APP_TMDB_KEY}&language=en-US`
       )
       .then((res) => {
         dispatch(fetchFilmsByPerson(res.data));

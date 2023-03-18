@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "../../styles/WatchedList.scss";
 import MovieCart from "../MovieCart";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 function WatchedList({ query }) {
   const navigate = useNavigate();
   useEffect(() => {

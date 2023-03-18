@@ -6,7 +6,6 @@ import "../styles/MovieRecomendation.scss";
 import Pagination from "@mui/material/Pagination";
 import MovieCart from "./MovieCart";
 function MovieRecomendations({ id }) {
-  const REACT_APP_TMDB_KEY = "4a16a312cc25534aac7bab9f0901fa3b";
   const [page, setPage] = useState(1);
   const handleChange = (event, value) => {
     document
@@ -19,14 +18,13 @@ function MovieRecomendations({ id }) {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${REACT_APP_TMDB_KEY}&language=en-US&page=${page}`
+        `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${import.meta.env.VITE_REACT_APP_TMDB_KEY}&language=en-US&page=${page}`
       )
       .then((res) => {
         res.data.results.length !== 0 &&
           dispatch(fetchRecomnedationFilm(res.data.results));
       });
   }, [page]);
-  console.log(Recomendation);
   return (
     <div>
       {Recomendation.length !== 0 && (

@@ -14,7 +14,6 @@ function FilmsImages({ open, setOpen }) {
     setOpen(true);
   };
   const imagesForFilm = useSelector((state) => state.imagesForFilm);
-
   return (
     <div className="img-container">
       {imagesForFilm.map((e) => {

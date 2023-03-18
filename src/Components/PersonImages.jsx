@@ -1,14 +1,12 @@
 import axios from "axios";
 import "../styles/PersonImages.scss";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import { fetchPersonImages } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 function PersonImages({ id, setImgPath, setOpenPersonImage }) {
   const dispatch = useDispatch();
-
-  const REACT_APP_TMDB_KEY = "4a16a312cc25534aac7bab9f0901fa3b";
   const imagesForPerson = useSelector((state) => state.imagesForPerson);
   const handleOpen = (path) => {
     setImgPath(path);
@@ -17,16 +15,15 @@ function PersonImages({ id, setImgPath, setOpenPersonImage }) {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/person/${id}/images?api_key=${REACT_APP_TMDB_KEY}`
+        `https://api.themoviedb.org/3/person/${id}/images?api_key=${import.meta.env.VITE_REACT_APP_TMDB_KEY}`
       )
       .then((res) => {
         dispatch(fetchPersonImages(res.data));
       });
   }, []);
-
   return (
     <div className="photos-container">
-      <h2>Photos</h2>
+     {imagesForPerson?.profiles?.length-1 !==0 &&  <h2>Photos</h2>}
       <div className="photos">
         {imagesForPerson.profiles?.slice(1, 15).map((e) => {
           return (

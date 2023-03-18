@@ -21,8 +21,7 @@ function Home({ query, setQuery }) {
   const PopularMovies = useSelector((state) => state.popularMovies);
   const topRated = useSelector((state) => state.topRated);
   const upComing = useSelector((state) => state.upComing);
-  const searchMovies = useSelector((state) => state.SearchMovies);
-  const REACT_APP_TMDB_KEY = "4a16a312cc25534aac7bab9f0901fa3b";
+  const searchMovies = useSelector((state) => state.SearchMovies);  
   useEffect(() => {
     setLoading(true);
     axios
@@ -49,7 +48,7 @@ function Home({ query, setQuery }) {
     setLoading(true);
     axios
       .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_TMDB_KEY}&language=en-US&page=${page}&include_adult=${adult}&query=${query}`
+        `https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.VITE_REACT_APP_TMDB_KEY}&language=en-US&page=${page}&include_adult=${adult}&query=${query}`
       )
       .then((res) => dispatch(fetchSearchMovies(res.data)))
       .then((res) => {

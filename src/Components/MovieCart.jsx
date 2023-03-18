@@ -20,7 +20,6 @@ function MovieCart({ movie, setQuery, search, watched }) {
     dispatch(removeMovieToWatchedList(movie));
   };
   const watchedList = useSelector((state) => state.WatchedListFilms);
-
   const styleForButton = {
     width: "3vw",
     minWidth: "20px",
@@ -40,7 +39,6 @@ function MovieCart({ movie, setQuery, search, watched }) {
         >
           {vote_average}
         </span>
-
         {poster_path ? (
           <LazyLoadImage
             className="img"
