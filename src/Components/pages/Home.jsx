@@ -9,6 +9,7 @@ import {
   fetchUpComingMovies,
   fetchSearchMovies,
 } from "../../redux/actions";
+import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import "../../styles/Home.scss";
@@ -60,7 +61,8 @@ function Home({ query, setQuery }) {
     setPage(value);
   };
   return (
-    <div className="home">
+    <motion.div className="home" initial={{ y: 22, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}>
       {query == "" && (
         <div className="movie-filter">
           <span
@@ -194,7 +196,7 @@ function Home({ query, setQuery }) {
           />
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
 

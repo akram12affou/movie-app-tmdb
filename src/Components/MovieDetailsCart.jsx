@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchFilmImages } from "../redux/actions";
 import FilmsImages from "./FilmsImages";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import axios from "axios";
 import MovieRecomendations from "./MovieRecomendations";
 function MovieDetailsCart({ movie, movieDetailsCast, open, setOpen }) {
@@ -42,7 +43,9 @@ function MovieDetailsCart({ movie, movieDetailsCast, open, setOpen }) {
     }
   };
   return (
-    <div>
+    <motion.div
+    initial={{ y: 22, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}>
       <div key={id} className="movie-details" onClick={() => setOpen(false)}>
         <div className="img-container">
           {poster_path ? (
@@ -98,7 +101,7 @@ function MovieDetailsCart({ movie, movieDetailsCast, open, setOpen }) {
         </div>
       </div>
       <div className="person-all-container">
-        <div className="billed-show">
+       {movieDetailsCast[0]?.cast.length !== 0 && <div className="billed-show">
           <h2>Top Billed Cast</h2>
           <button
             onClick={showfunc}
@@ -110,7 +113,7 @@ function MovieDetailsCart({ movie, movieDetailsCast, open, setOpen }) {
           >
             Show all
           </button>
-        </div>
+        </div>}
         <div className="person-container">
           {movieDetailsCast[0]?.cast.slice(0, showing).map((person) => {
             return <Person person={person} />;
@@ -126,7 +129,7 @@ function MovieDetailsCart({ movie, movieDetailsCast, open, setOpen }) {
         </div>
         <MovieRecomendations id={id} />
       </div>
-    </div>
+    </motion.div>
   );
 }
 

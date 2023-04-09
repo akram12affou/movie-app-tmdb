@@ -1,6 +1,6 @@
 import axios from "axios";
 import MovieCart from '../MovieCart'
-
+import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams,useNavigate } from "react-router-dom";
@@ -12,6 +12,12 @@ import PersonImages from "../PersonImages";
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 function PersonDetails({query}) {
+  const style = `body{
+    height: 100%;
+    overflow: hidden;
+
+  }
+  `
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
     const [openPersonImg,setOpenPersonImage] = useState(false)
@@ -47,7 +53,10 @@ function PersonDetails({query}) {
   }, []);
   
   return (
-    <div className="persons-details-container">
+    <motion.div  
+    initial={{ y: 22, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    className="persons-details-container">
       {!loading ? (
         <>
           {PersonDetails.map((e) => {
@@ -110,7 +119,10 @@ function PersonDetails({query}) {
          <LazyLoadImage src={`https://image.tmdb.org/t/p/original///${imgPath}`} alt="" />
         </div></div>
         }
-    </div>
+       {openPersonImg && <style>
+          {style}
+        </style>}
+    </motion.div>
   );
 }
 

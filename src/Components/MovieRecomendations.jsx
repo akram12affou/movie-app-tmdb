@@ -24,7 +24,7 @@ function MovieRecomendations({ id }) {
         res.data.results.length !== 0 &&
           dispatch(fetchRecomnedationFilm(res.data.results));
       });
-  }, [page]);
+  }, [page,id]);
   return (
     <div>
       {Recomendation.length !== 0 && (

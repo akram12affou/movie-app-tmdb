@@ -16,3 +16,21 @@ body{
        
       
 }
+.button{
+      color: white;
+      background:inherit;
+      outline: none;
+      border: none;
+      position: relative;
+      top: 15px;
+      border: white 1px solid;
+      cursor: pointer;
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      font-family: 'Poppins';
+      padding: 10px;
+     &:hover{
+      text-decoration: underline;
+     }
+}

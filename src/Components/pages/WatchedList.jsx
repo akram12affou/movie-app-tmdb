@@ -3,6 +3,7 @@ import "../../styles/WatchedList.scss";
 import MovieCart from "../MovieCart";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 function WatchedList({ query }) {
   const navigate = useNavigate();
   useEffect(() => {
@@ -13,10 +14,21 @@ function WatchedList({ query }) {
   return (
     <>
       {watchedList.length == 0 && (
-        <h1 style={{ color: "white" }}> your watchlist is empty</h1>
+        <center>  
+        <button  className="button" onClick={() => navigate("/")}> <ArrowBackRoundedIcon/> home page</button>
+        <h2 style={{ color: "white" }}>
+                 
+                 your watchlist is empty
+           </h2></center>
+      
       )}
       {watchedList.length !== 0 && (
-        <h2 className="watched-list-title">your watchlist</h2>
+        <>
+        <center><button className="button" onClick={() => navigate("/")}> <ArrowBackRoundedIcon/> home page</button></center>
+         
+         <h2 className="watched-list-title">your watchlist</h2>
+        </>
+
       )}
       <div className="movies">
         {watchedList.map((movie) => {

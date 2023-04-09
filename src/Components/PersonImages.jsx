@@ -2,7 +2,6 @@ import axios from "axios";
 import "../styles/PersonImages.scss";
 import React, { useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
 import { fetchPersonImages } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 function PersonImages({ id, setImgPath, setOpenPersonImage }) {

@@ -15,15 +15,14 @@
     .photos img{
         transition: all 0.2s ease-in-out;
         display: inline;
-       
-       width: 115px;
-       height: 160px;
-       overflow: hidden;
-      object-fit: cover;  
-      cursor: pointer;
+        width: 115px;
+        height: 160px;
+        overflow: hidden;
+        object-fit: cover;  
+        cursor: pointer;
       &:hover{
         transform: scale(1.05) rotate(2deg);
-       
+        
       } 
     }
     
