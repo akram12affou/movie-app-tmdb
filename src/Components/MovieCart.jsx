@@ -2,6 +2,7 @@ import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
 import "../styles/MovieCart.scss";
+import { motion } from "framer-motion";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { useDispatch, useSelector } from "react-redux";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -40,20 +41,25 @@ function MovieCart({ movie, setQuery, search, watched }) {
           {vote_average}
         </span>
         {poster_path ? (
-          <LazyLoadImage
+          <motion.div  
+          initial={{ scale: 0.9, opacity: 0.4 }}
+          animate={{ scale: 1, opacity: 1 }}>
+                <LazyLoadImage
             className="img"
             onClick={() => toTheDetail(id)}
             src={`https://image.tmdb.org/t/p/w400/${poster_path}`}
             effect="blur"
             alt=""
           />
+          </motion.div>
+      
         ) : (
           <div className="img" onClick={() => toTheDetail(id)}>
             <PlayArrowIcon />
           </div>
         )}
         <div className="cart-footer">
-          <p>{original_title.substring(0, 10)}...</p>
+          <p>{original_title.substring(0, 10)}{original_title.length > 10 && '...'}</p>
           <div className="fav-icon">
             {!watched && (
               <>
